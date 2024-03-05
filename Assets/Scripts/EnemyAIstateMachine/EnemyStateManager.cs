@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
 {
-    public GameObject targetPlayer;
+    public Vector3 targetPos;
     public LayerMask GunStand,Enemy;
     public EnemyBaseState currentState;
     public EnemyWalkState walkState=new EnemyWalkState();
@@ -15,9 +15,11 @@ public class EnemyStateManager : MonoBehaviour
     public Animator anim;
     public int HP;
     Collider[] colliders;
-    //public bool detected=false;
+
     void Start()
     {
+        targetPos=new Vector3(0,0,0); 
+        
         colliders = GetComponentsInChildren<Collider>();
         foreach (Collider collider in colliders)
         {
@@ -25,7 +27,7 @@ public class EnemyStateManager : MonoBehaviour
         }
         
         gameObject.GetComponent<Collider>().isTrigger = false;
-        Debug.Log("anan");
+     
         currentState = walkState;
         currentState.EnterState(this);
         
@@ -35,18 +37,18 @@ public class EnemyStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 10f, GunStand);    
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 10f, GunStand);
         foreach (Collider collider in colliders)
         {
-            
+
             GameObject nearbyObject = collider.gameObject;
             if (nearbyObject.CompareTag("Player"))
-            {              
-                targetPlayer=nearbyObject;
+            {
+                targetPos = nearbyObject.transform.position;
             }
-            
+
         }
-      
+
     }
 
     public void SwitchState(EnemyBaseState state)

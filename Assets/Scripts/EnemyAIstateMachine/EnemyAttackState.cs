@@ -7,18 +7,20 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyAttackState : EnemyBaseState
 {
     Rigidbody rb;
+    EnemyStateManager stateManager;
+    Vector3 targetTr;
+   
+   
     
-    public LayerMask Player;
-    //private bool playerDetected = false;
-    EnemyStateManager target;
     float dir;
 
     public override void EnterState(EnemyStateManager enemy)
     {
+        stateManager = enemy;
         enemy.anim.SetInteger("param", 1);
         Debug.Log("Enemy Attack State!!!");
         rb = enemy.GetComponent<Rigidbody>();
-        target = enemy;
+      
         rb.transform.rotation = new Quaternion(0, 180, 0, 0);
     }
 
@@ -27,39 +29,36 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        dir = (rb.position - target.targetPlayer.transform.position).magnitude;
-        if (dir <= 10 && dir > 3)
-        {
-            rb.transform.LookAt(target.targetPlayer.transform);
-            Vector3 direction = (rb.position - target.targetPlayer.transform.position).normalized;
-            rb.transform.Translate(10 * Time.deltaTime * direction);
-            enemy.anim.SetInteger("param", 1);
-            //Debug.Log(dir);
-            if (dir <= 5)
+        targetTr = stateManager.targetPos;
+        dir = (rb.transform.position - targetTr).magnitude;
+            if (dir <= 10 && dir > 3)
             {
-                Debug.Log("attackkkkk");
-                enemy.anim.SetInteger("param", 2);
+                rb.transform.LookAt(targetTr);
+                Vector3 direction = (rb.transform.position - targetTr).normalized;
+                rb.transform.Translate(10 * Time.deltaTime * direction);
+                enemy.anim.SetInteger("param", 1);
+               
+                if (dir <= 5)
+                {
+                    Debug.Log("attackkkkk");
+                    enemy.anim.SetInteger("param", 2);
+                }
             }
-        }
-        else if(dir>10) 
-        {
-            enemy.SwitchState(enemy.walkState);
-        }
+            else if (dir > 10)
+            {
+                enemy.SwitchState(enemy.walkState);
+            }
 
-        if (enemy.transform.position.y != 0.7f)
-        {
-            enemy.transform.position = new Vector3(enemy.transform.position.x, 0.7f, enemy.transform.position.z);
-        }
-
+            if (enemy.transform.position.y != 0.7f)
+            {
+                enemy.transform.position = new Vector3(enemy.transform.position.x, 0.7f, enemy.transform.position.z);
+            }
+        
     }
 
     public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            Debug.Log("attack state collision");
-            //playerDetected = true;
-        }
+        
         if (collision.collider.CompareTag("bullet"))
         {
             enemy.SwitchState(enemy.beingHitState);

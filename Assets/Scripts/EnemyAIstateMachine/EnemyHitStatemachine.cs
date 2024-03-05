@@ -33,7 +33,7 @@ public class EnemyHitStatemachine : EnemyBaseState
         if(enemy.HP <= 0) {
             enemy.SwitchState(enemy.deathState);    
         }
-        dir = (rb.position - target.targetPlayer.transform.position).magnitude;
+        dir = (rb.position - target.targetPos).magnitude;
         if (counter > 1.3f)
         {
             counter = 0;

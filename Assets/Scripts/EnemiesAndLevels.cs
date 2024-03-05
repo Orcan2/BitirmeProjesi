@@ -17,8 +17,8 @@ public class EnemiesAndLevels : MonoBehaviour
         GoButton.SetActive(false);
         while (enemyCount < 2 * level)
         {
-            //Instantiate(Enemies[Random.Range(0,Enemies.Length)],enemySpawnPoint.transform.position+new Vector3(Random.Range(-6,6),0,0),Quaternion.identity);
-            Enemies[Random.Range(0, Enemies.Length)].SetActive(true);
+            Instantiate(Enemies[Random.Range(0,Enemies.Length)],enemySpawnPoint.transform.position+new Vector3(Random.Range(-6,6),0,0),Quaternion.identity);
+            //Enemies[Random.Range(0, Enemies.Length)].SetActive(true);
             enemyCount++;
         }
     }
