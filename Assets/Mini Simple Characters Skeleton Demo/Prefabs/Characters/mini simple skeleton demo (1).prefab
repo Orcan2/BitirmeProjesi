@@ -553,7 +553,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   anim: {fileID: 8344714602056086714}
-  HP: 0
+  HP: 1
 --- !u!54 &6718257430144516144
 Rigidbody:
   m_ObjectHideFlags: 0
