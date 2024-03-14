@@ -27,15 +27,16 @@ public class Cursor : MonoBehaviour
 
     }
 
-    void Update()
+    void Update()//40,670
     {
-        if (isTouch.touching) { 
-        rectr.transform.position = new Vector3(Input.mousePosition.x,Mathf.Clamp(Input.mousePosition.y, startposY - valY, startposY), cursor.transform.position.z);
+        
+        if (isTouch.touching/* && (rectr.position.x>40&& rectr.position.x<670)*/) { 
+        rectr.transform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 40, 670), Mathf.Clamp(Input.mousePosition.y, startposY - valY, startposY), cursor.transform.position.z);
            
             dir = rectr.transform.position.x - startposX;
-            //if (/*silahýn sýnýrlarý buraya gelecek*/true) {
-                GunStand.transform.position = new Vector3(speed * dir, GunStand.transform.position.y, GunStand.transform.position.z);
-            //}
+            
+            GunStand.transform.position = new Vector3(speed * dir, GunStand.transform.position.y, GunStand.transform.position.z);
+            
         }
         else
         {
