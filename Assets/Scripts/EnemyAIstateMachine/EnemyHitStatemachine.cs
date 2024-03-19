@@ -7,6 +7,7 @@ public class EnemyHitStatemachine : EnemyBaseState
     float dir;
     Rigidbody rb;
     float counter=0;
+    Items items;
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("vuruldum");

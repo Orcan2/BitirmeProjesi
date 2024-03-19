@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,8 @@ public class EnemiesAndLevels : MonoBehaviour
     public int enemyCount = 0;
     public GameObject GoButton,enemySpawnPoint;
     public GameObject[] Enemies = new GameObject[5];
-    
+    public GameObject Market,Controlpanel;
+    bool active=false;
     public TextMeshProUGUI yazi;
 
     private void Start()
@@ -43,5 +45,10 @@ public class EnemiesAndLevels : MonoBehaviour
         }
         
     }
-
+    public void MarketSwitch()
+    {
+        active = !active;
+        Market.SetActive(active);
+        Controlpanel.SetActive(!active);
+    }
 }

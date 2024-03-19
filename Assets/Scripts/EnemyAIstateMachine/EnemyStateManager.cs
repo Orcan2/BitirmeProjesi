@@ -13,11 +13,12 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyHitStatemachine beingHitState = new EnemyHitStatemachine();
     public EnemyDeathState deathState = new EnemyDeathState();
     public Animator anim;
-    public int HP;
+    public float HP;
     Collider[] colliders;
 
     void Start()
     {
+        HP = 10;
         targetPos=new Vector3(0,0,0); 
         
         colliders = GetComponentsInChildren<Collider>();

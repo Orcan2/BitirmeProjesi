@@ -7,30 +7,30 @@ public class Cursor : MonoBehaviour
 {
     public GameObject cursor,bullet, GunStand;
     RectTransform rectr;
-    Transform shotPoint;
+    public Guns currentGunIndex;  
     public float speed;
     public float valY;
-  
+    public MarketPopulating items;
+    //float fireRate;
     public CursorTouch isTouch;
     float dir;
     float startposX,startposY;
-    public GameObject[] guns = new GameObject[4];
-    int currentGunIndx = 0;
-    float fireRate = 0.1f;
+    
+ 
     bool readyTofire = true;
     void Start()
     {
         rectr = cursor.GetComponent<RectTransform>();
         startposX = cursor.transform.position.x;
         startposY= cursor.transform.position.y;
-        guns[currentGunIndx].SetActive(true);
+        //fireRate = 0.4f;
 
     }
 
-    void Update()//40,670
+    void Update()
     {
         
-        if (isTouch.touching/* && (rectr.position.x>40&& rectr.position.x<670)*/) { 
+        if (isTouch.touching) { 
         rectr.transform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 40, 670), Mathf.Clamp(Input.mousePosition.y, startposY - valY, startposY), cursor.transform.position.z);
            
             dir = rectr.transform.position.x - startposX;
@@ -47,10 +47,8 @@ public class Cursor : MonoBehaviour
         {
             Fire();
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            changeGun();
-        }
+      
+        
 
     }
 
@@ -58,23 +56,20 @@ public class Cursor : MonoBehaviour
     {
         if (readyTofire)
         {
-            shotPoint = guns[currentGunIndx].transform.GetChild(0);
-            Instantiate(bullet, shotPoint.position, Quaternion.identity);
+           
+            
+            Instantiate(bullet, GunStand.transform.GetChild(currentGunIndex.currentGunIndex).Find("barrel").transform.position, Quaternion.identity);
+            
             readyTofire = false;
             StartCoroutine(waitTofire());
-
+   
         }
     }
-    void changeGun()
-    {
-        guns[currentGunIndx].SetActive(false);
-        currentGunIndx++;
-        if (currentGunIndx >= guns.Length) { currentGunIndx = 0; }
-        guns[currentGunIndx].SetActive(true);
-    }
+   
     IEnumerator waitTofire()
     {
-        yield return new WaitForSeconds(fireRate);
+        Debug.Log(currentGunIndex.currentGunIndex);
+        yield return new WaitForSeconds(items.Items[currentGunIndex.currentGunIndex].itemFireRate);      
         readyTofire = true;
     }
    
