@@ -35,6 +35,16 @@ public class Guns : MonoBehaviour
             {
                 silahlar[i].SetActive(false);
             }
+            else
+            {
+                silahlar[i].SetActive(true);
+            }
         }
+    }
+    public void changeGunviaIndex()
+    {
+        currentGunIndex=(currentGunIndex+1)%silahlar.Count;
+        changeGun();
+        Debug.Log(currentGunIndex);
     }
 }
