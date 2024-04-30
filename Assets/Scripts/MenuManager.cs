@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
 
     public GameObject startPanel;
     public GameObject menuPanel;
+    public GameObject PausePanel;
+
     public Button startButton;
 
     void Start()
@@ -29,5 +31,34 @@ public class MenuManager : MonoBehaviour
         // Başlangıç panelini kapat
         startPanel.SetActive(false);
         menuPanel.SetActive(true);
+    }
+
+    public void PauseButton()
+    {
+       Time.timeScale = 0.0f;
+        menuPanel.SetActive(false);
+        PausePanel.SetActive(true);
+        
+
+
+    }
+    public void PlayButton()
+    {
+        Time.timeScale = 1.0f;
+        menuPanel.SetActive(true);
+        PausePanel.SetActive(false);
+    }
+
+    public void RePlayButton()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
+    }
+
+   
+    public void HomeButton()
+    {
+        
+        SceneManager.LoadScene(1);
     }
 }
