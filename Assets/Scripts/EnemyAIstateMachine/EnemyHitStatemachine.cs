@@ -11,7 +11,9 @@ public class EnemyHitStatemachine : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("vuruldum");
+        
         enemy.HP--;
+       // enemy.slider.value = enemy.HP;
         enemy.anim.SetInteger("param", 3);
         rb=enemy.GetComponent<Rigidbody>();
         target = enemy;
