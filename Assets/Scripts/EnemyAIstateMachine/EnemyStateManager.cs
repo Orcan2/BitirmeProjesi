@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Schema;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class EnemyStateManager : MonoBehaviour
 {
@@ -14,10 +16,18 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyDeathState deathState = new EnemyDeathState();
     public Animator anim;
     public float HP;
+    // public float damage;
+
+    public UnityEngine.UI.Slider slider;
+   
     Collider[] colliders;
 
     void Start()
     {
+        
+        slider.maxValue = HP;
+        //slider.minValue = HP;
+        
         HP = 10;
         targetPos=new Vector3(0,0,0); 
         

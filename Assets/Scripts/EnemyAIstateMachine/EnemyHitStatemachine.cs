@@ -11,7 +11,10 @@ public class EnemyHitStatemachine : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("vuruldum");
+        
         enemy.HP--;
+        //enemy.slider.value = enemy.HP;
+        //enemy.slider.value-=0.1f;
         enemy.anim.SetInteger("param", 3);
         rb=enemy.GetComponent<Rigidbody>();
         target = enemy;
@@ -24,6 +27,7 @@ public class EnemyHitStatemachine : EnemyBaseState
         if (collision.collider.CompareTag("bullet"))
         {
             enemy.HP--;
+            enemy.slider.value = enemy.HP*0.1f;
             enemy.transform.Translate(Vector3.back * 10 * Time.deltaTime);
         }
         
