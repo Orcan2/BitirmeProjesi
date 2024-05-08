@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,8 +27,10 @@ public class MarketPopulating : MonoBehaviour
         {
             GameObject cogalanslot = Instantiate(slot, transform);
             cogalanslot.GetComponent<Image>().sprite = Items[i].itemPic;
+            cogalanslot.transform.Find("PRICE").GetComponent<TextMeshProUGUI>().SetText("PRICE \t"+Items[i].itemPrice.ToString());
             int temp = i;
             cogalanslot.transform.Find("BUY").GetComponent<Button>().onClick.AddListener(() => Buy(temp));
+            
         }
     }
     public void Buy(int id)
