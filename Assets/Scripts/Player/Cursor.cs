@@ -59,6 +59,7 @@ public class Cursor : MonoBehaviour
            
             
             Instantiate(bullet, GunStand.transform.GetChild(currentGunIndex.currentGunIndex).Find("barrel").transform.position, Quaternion.identity);
+            //Play gun sound
             GunStand.transform.GetChild(currentGunIndex.currentGunIndex).GetComponent<AudioSource>().Play();
             readyTofire = false;
             StartCoroutine(waitTofire());
