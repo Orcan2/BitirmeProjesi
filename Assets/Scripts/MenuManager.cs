@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject startPanel;
     public GameObject menuPanel;
     public GameObject PausePanel;
+    public GameObject GameOverPanel;
 
     public Button startButton;
 
@@ -52,13 +53,19 @@ public class MenuManager : MonoBehaviour
     public void RePlayButton()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
    
     public void HomeButton()
     {
         
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
+    }
+    public void GameOverButton()
+    {
+        Time.timeScale = 0.0f;
+        menuPanel.SetActive(false);
+        GameOverPanel.SetActive(true);
     }
 }
