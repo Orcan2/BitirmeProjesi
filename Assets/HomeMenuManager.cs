@@ -19,7 +19,7 @@ public class HomeMenuManager : MonoBehaviour
     public void PlayHomeButton()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void QuitHomeButton()
     {

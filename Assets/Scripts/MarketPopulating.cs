@@ -41,7 +41,7 @@ public class MarketPopulating : MonoBehaviour
             
             tmp = Items[id].itemSelf ;
             
-            Instantiate(tmp, gunStand.transform.position + new Vector3(0,2, 0), Quaternion.identity, gunStand.transform);
+            Instantiate(tmp, gunStand.transform.position + new Vector3(0, 1, 0), Quaternion.identity, gunStand.transform);
             gunList.guncel();    
         }
         else

@@ -7,7 +7,6 @@ public class EnemyWalkState : EnemyBaseState
     Rigidbody rb;
     Vector3 targetTr;
     EnemyStateManager stateManager;
-   // MenuManager menuManager;
     Vector3 dir;
     Animator animm;
     
@@ -34,11 +33,6 @@ public class EnemyWalkState : EnemyBaseState
             rb.transform.Translate(new Vector3((collision.gameObject.transform.position.x-rb.transform.position.x)*0.5f, 0,0));
             Debug.Log("enemy temas");
         }
-        /*if (collision.collider.CompareTag("Sensor"))
-        {
-            menuManager.GameOverButton();
-            Debug.Log("Sensor calisti");
-        }*/
     }
 
     

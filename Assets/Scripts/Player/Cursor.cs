@@ -31,7 +31,7 @@ public class Cursor : MonoBehaviour
     {
         
         if (isTouch.touching) { 
-        rectr.transform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 300, 750), Mathf.Clamp(Input.mousePosition.y, startposY - valY, startposY), cursor.transform.position.z);
+        rectr.transform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 40, 670), Mathf.Clamp(Input.mousePosition.y, startposY - valY, startposY), cursor.transform.position.z);
            
             dir = rectr.transform.position.x - startposX;
             

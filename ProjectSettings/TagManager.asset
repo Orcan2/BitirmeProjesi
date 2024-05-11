@@ -6,7 +6,6 @@ TagManager:
   tags:
   - bullet
   - Enemy
-  - Sensor
   layers:
   - Default
   - TransparentFX
