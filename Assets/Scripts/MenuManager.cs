@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject startPanel;
     public GameObject menuPanel;
     public GameObject PausePanel;
+    public GameObject GameOverPanel;
 
     public Button startButton;
 
@@ -60,5 +61,11 @@ public class MenuManager : MonoBehaviour
     {
         
         SceneManager.LoadScene(1);
+    }
+    public void GameOverButton()
+    {
+        Time.timeScale = 0.0f;
+        menuPanel.SetActive(false);
+        GameOverPanel.SetActive(true);
     }
 }
