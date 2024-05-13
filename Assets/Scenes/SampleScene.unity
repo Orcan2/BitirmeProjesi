@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 41442066}
   - component: {fileID: 41442065}
   m_Layer: 5
-  m_Name: Pause
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,11 +370,11 @@ RectTransform:
   m_LocalScale: {x: 1.3748, y: 1.3748, z: 1.3748}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1857871592}
+  m_Father: {fileID: 1377643358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1156.1697}
+  m_AnchoredPosition: {x: 0, y: 567.82007}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41442065
@@ -3069,7 +3069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5361547942864714803, guid: 291549cb790d4484a839cd0c5c4d33a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5804789385215877341, guid: 291549cb790d4484a839cd0c5c4d33a5, type: 3}
       propertyPath: m_Controller
@@ -3106,9 +3106,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2289893284025645231, guid: 291549cb790d4484a839cd0c5c4d33a5, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1377643358}
-    - targetCorrespondingSourceObject: {fileID: 8628934093519414103, guid: 291549cb790d4484a839cd0c5c4d33a5, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 41442064}
     - targetCorrespondingSourceObject: {fileID: 6770607581466087191, guid: 291549cb790d4484a839cd0c5c4d33a5, type: 3}
       insertIndex: 2
       addedObject: {fileID: 386499977}
@@ -4215,28 +4212,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - itemName: pistol
-    itemPic: {fileID: 21300000, guid: d11e86d9c6f085a4b80d3e1d00a1bf79, type: 3}
+    itemPic: {fileID: 21300000, guid: 70e33f60ad1eb914c8f93fb207aa5ca8, type: 3}
     itemPrice: 0
     itemSelf: {fileID: 6318724983684258032, guid: c6f2aa6c349169d47b8941c8219805c3, type: 3}
     itemFireRate: 1.3
     itemDamage: 10
   - itemName: ak47
-    itemPic: {fileID: 21300000, guid: a2d417a127cf75e42bed8fa5a31946c9, type: 3}
+    itemPic: {fileID: 21300000, guid: b70a1c123ce071d41817481366a59cc7, type: 3}
     itemPrice: 10
     itemSelf: {fileID: 7163408548115724912, guid: 1b3e72640caf75046bdc3f7c7f7d58a5, type: 3}
     itemFireRate: 0.1
     itemDamage: 5
   - itemName: AUG
-    itemPic: {fileID: 21300000, guid: a0c7fd1c2b76a6d4eadc406b8caa74b6, type: 3}
+    itemPic: {fileID: 21300000, guid: 7c67be9d91586c6439474934bd77d6b5, type: 3}
     itemPrice: 20
     itemSelf: {fileID: 8689679135779870596, guid: 4b09a54432ab1284895cc66c377e2044, type: 3}
-    itemFireRate: 0.2
+    itemFireRate: 2
     itemDamage: 1
   - itemName: famas
-    itemPic: {fileID: 21300000, guid: f7011031ee06c9241b0463fbe2ed9cf1, type: 3}
+    itemPic: {fileID: 21300000, guid: fa93362205121ca45b0ad2a1190d8241, type: 3}
     itemPrice: 30
     itemSelf: {fileID: 307181440869393434, guid: 2df0d8742ea3f79499f21e6c45e9ed0d, type: 3}
-    itemFireRate: 0.5
+    itemFireRate: 3
     itemDamage: 2
   gunList: {fileID: 4674876384717996781}
   slot: {fileID: 2281223224289309160, guid: db8d74dc3fa6270408c47646cc24f786, type: 3}
@@ -12643,7 +12640,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 41442064}
   m_Father: {fileID: 2067029945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12664,7 +12662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87169814, g: 0.072394006, b: 0, a: 0.33333334}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12716,7 +12714,7 @@ RectTransform:
   m_GameObject: {fileID: 1447430642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6535564, y: 0.93527424, z: 1}
+  m_LocalScale: {x: 0.8, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 663812955}
@@ -12724,8 +12722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 25}
+  m_SizeDelta: {x: 0, y: -800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1447430644
 MonoBehaviour:
@@ -19976,11 +19974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1857871592 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8628934093519414103, guid: 291549cb790d4484a839cd0c5c4d33a5, type: 3}
-  m_PrefabInstance: {fileID: 517335588}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1886939354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ea43d78db88eb7246adac49ba93e82d9, type: 3}
@@ -22931,7 +22924,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 533eaf1384eb72d41bbf8a25b870c0f7, type: 2}
+  - {fileID: 2100000, guid: d05b83a5733b4ba469d3c1a5891d6f88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -67,5 +67,6 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 0.0f;
         menuPanel.SetActive(false);
         GameOverPanel.SetActive(true);
+
     }
 }
