@@ -20,6 +20,7 @@ public class EnemyStateManager : MonoBehaviour
 
     public UnityEngine.UI.Slider slider;
    
+   
     Collider[] colliders;
 
     void Start()

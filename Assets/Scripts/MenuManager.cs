@@ -69,4 +69,9 @@ public class MenuManager : MonoBehaviour
         GameOverPanel.SetActive(true);
 
     }
+    public void PlayerDie()
+    {
+        menuPanel.SetActive(false);
+        GameOverPanel.SetActive(true);
+    }
 }
