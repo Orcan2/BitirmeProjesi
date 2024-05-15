@@ -1,4 +1,4 @@
-
+﻿
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,9 +9,11 @@ public class EnemyAttackState : EnemyBaseState
     Rigidbody rb;
     EnemyStateManager stateManager;
     Vector3 targetTr;
-   
-   
-    
+    PlayerHealth playerHealth;
+
+
+
+
     float dir;
 
     public override void EnterState(EnemyStateManager enemy)
@@ -22,6 +24,13 @@ public class EnemyAttackState : EnemyBaseState
         rb = enemy.GetComponent<Rigidbody>();
       
         rb.transform.rotation = new Quaternion(0, 180, 0, 0);
+
+        // Player karakterinin sağlık bileşenine erişim sağla
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>();
+        }
     }
 
     
@@ -41,6 +50,7 @@ public class EnemyAttackState : EnemyBaseState
                 if (dir <= 5)
                 {
                     Debug.Log("attackkkkk");
+                    AttackPlayer();
                     enemy.anim.SetInteger("param", 2);
                 }
             }
@@ -67,10 +77,20 @@ public class EnemyAttackState : EnemyBaseState
         {
             rb.transform.Translate(new Vector3((collision.gameObject.transform.position.x - rb.transform.position.x) * 0.1f, 0, 0));
             Debug.Log("enemy temas");
+            AttackPlayer();
+
         }
 
 
     }
-    
-   
+    void AttackPlayer()
+    {
+        // Oyuncuya hasar verme
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(1); //  1 hasar ver
+        }
+    }
+
+
 }

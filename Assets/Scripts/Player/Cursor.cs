@@ -31,7 +31,7 @@ public class Cursor : MonoBehaviour
     {
         
         if (isTouch.touching) { 
-        rectr.transform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 40, 670), Mathf.Clamp(Input.mousePosition.y, startposY - valY, startposY), cursor.transform.position.z);
+        rectr.transform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 350, 750), Mathf.Clamp(Input.mousePosition.y, startposY - valY, startposY), cursor.transform.position.z);
            
             dir = rectr.transform.position.x - startposX;
             
@@ -59,7 +59,8 @@ public class Cursor : MonoBehaviour
            
             
             Instantiate(bullet, GunStand.transform.GetChild(currentGunIndex.currentGunIndex).Find("barrel").transform.position, Quaternion.identity);
-            
+            //Play gun sound
+            GunStand.transform.GetChild(currentGunIndex.currentGunIndex).GetComponent<AudioSource>().Play();
             readyTofire = false;
             StartCoroutine(waitTofire());
    
