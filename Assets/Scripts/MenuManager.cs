@@ -53,14 +53,14 @@ public class MenuManager : MonoBehaviour
     public void RePlayButton()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
    
     public void HomeButton()
     {
         
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void GameOverButton()
     {
